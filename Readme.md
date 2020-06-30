@@ -1,11 +1,22 @@
-**Readme.md**
+# Readme.md
 
-First, install freeimage
-(on Ubuntu: sudo apt install libfreeimage3)
-(on Manjaro: sudo pacman -S freeimage)
+## Prerequisites
+First, install freeimage:
+
+Ubuntu:
+```
+sudo apt install libfreeimage3
+```
+
+Manjaro:
+
+```
+sudo pacman -S freeimage
+```
+
+# Build an launch
 
 Then:
-
 ```
 mkdir build
 cd build
