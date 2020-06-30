@@ -14,7 +14,7 @@ Manjaro:
 sudo pacman -S freeimage
 ```
 
-# Build an launch
+## Build an launch
 
 Then:
 ```
