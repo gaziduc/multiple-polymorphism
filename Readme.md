@@ -1,4 +1,4 @@
-# Readme.md
+# CPPA Project
 
 ## Prerequisites
 First, install freeimage:
