@@ -1,7 +1,5 @@
-#include <Python.h>
-#include <boost/python.hpp>
-#include <boost/python/numpy.hpp>
 #include <mln/core/image/ndbuffer_image.hpp>
+#include <pybind11/pybind11.h>
 
 mln::ndbuffer_image numpy_to_buffer_image(PyObject *obj)
 {
