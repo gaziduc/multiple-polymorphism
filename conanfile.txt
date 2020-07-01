@@ -1,5 +1,6 @@
 [requires]
 pylene/head@lrde/stable
+boost/1.73
 
 [generators]
 cmake_find_package

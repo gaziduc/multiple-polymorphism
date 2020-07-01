@@ -6,5 +6,7 @@ include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 add_executable(cppa src/main.cc)
 
 find_package(Pylene REQUIRED)
+find_package(PythonLibs REQUIRED)
 
-target_link_libraries(cppa PRIVATE Pylene::Pylene)
+include_directories(${PYTHON_INCLUDE_DIRS})
+target_link_libraries(cppa PRIVATE ${PYTHON_LIBRARIES} Pylene::Pylene)
