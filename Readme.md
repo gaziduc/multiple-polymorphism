@@ -2,8 +2,7 @@
 
 ## Prerequisites
 
-### freeimage
-First, install freeimage:
+### Install freeimage
 
 Ubuntu:
 ```
@@ -22,9 +21,8 @@ sudo pacman -S freeimage
 conan remote add lrde-public https://artifactory.lrde.epita.fr/artifactory/api/conan/lrde-public
 ```
 
-## Build and launch
+## Build
 
-Then:
 ```
 mkdir build
 cd build
