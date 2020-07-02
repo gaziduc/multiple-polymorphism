@@ -24,7 +24,7 @@ conan remote add lrde-public https://artifactory.lrde.epita.fr/artifactory/api/c
 ## Clone
 
 ```
-git clone --recurse-submodules https://github.com/gaziduc/cppa
+git clone https://github.com/gaziduc/cppa
 ```
 
 ## Build
