@@ -1,7 +1,6 @@
 #include <mln/core/image/ndbuffer_image.hpp>
-#include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>
-
+#include "convert.hh"
 
 namespace py = pybind11;
 
@@ -24,8 +23,8 @@ py::array ndbuffer_image_to_numpy(mln::ndbuffer_image buffer_image)
     buf.format = "l";
     buf.ndim = buffer_image.pdim();
 
-    std::vector<ssize_t> shape(ndim);
-    std::vector<ssize_t> strides(ndim);
+    std::vector<ssize_t> shape(buf.ndim);
+    std::vector<ssize_t> strides(buf.ndim);
     for (ssize_t i = 0; i < buf.ndim; i++)
     {
         shape[i] = buffer_image.size(i);

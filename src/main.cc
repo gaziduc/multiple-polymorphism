@@ -1,11 +1,9 @@
 #include <pybind11/pybind11.h>
-#include <pybind11/numpy.h>
-
 #include "convert.hh"
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(example, m)
+PYBIND11_MODULE(pylene, m)
 {
     m.def("numpy_to_ndbuffer_image", &numpy_to_ndbuffer_image,
           "Converts a numpy array to a mln::ndbuffer_image",

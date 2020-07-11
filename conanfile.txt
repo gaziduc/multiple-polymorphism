@@ -4,3 +4,7 @@ pylene/head@lrde/stable
 [generators]
 cmake_find_package
 cmake_paths
+
+
+[options]
+pylene:shared=True
