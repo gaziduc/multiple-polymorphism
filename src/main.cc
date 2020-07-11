@@ -8,6 +8,10 @@ PYBIND11_MODULE(pylene, m)
     m.def("numpy_to_ndbuffer_image", &numpy_to_ndbuffer_image,
           "Converts a numpy array to a mln::ndbuffer_image",
           py::arg("array"));
+
+    m.def("ndbuffer_image_to_numpy", &ndbuffer_image_to_numpy,
+          "Converts a mln::ndbuffer_image to a numpy array",
+          py::arg("buffer_image"));
 }
 
 
