@@ -6,7 +6,7 @@ namespace pln
     public:
         se(const T& element);
 
-        T get_se() const /* override */;
+        T get_se() const override;
 
     private:
         T element_;
