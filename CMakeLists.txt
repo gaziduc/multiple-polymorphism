@@ -7,5 +7,9 @@ find_package(Pylene REQUIRED)
 
 add_subdirectory(include/pybind11)
 
-pybind11_add_module(cppa src/main.cc)
-target_link_libraries(cppa PRIVATE Pylene::Pylene)
+add_library(core STATIC src/convert.cc)
+set_target_properties(core PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_link_libraries(core PRIVATE Pylene::Pylene)
+
+pybind11_add_module(pylene src/main.cc)
+target_link_libraries(pylene PRIVATE core)

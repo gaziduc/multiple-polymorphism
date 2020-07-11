@@ -4,15 +4,9 @@
 
 ### Install freeimage
 
-Ubuntu:
 ```
-sudo apt install libfreeimage3
-```
-
-Manjaro:
-
-```
-sudo pacman -S freeimage
+sudo apt install libfreeimage3 # Ubuntu
+sudo pacman -S freeimage # Manjaro
 ```
 
 ### Add the Pylene repository in your conan remotes
@@ -32,7 +26,7 @@ git clone https://github.com/gaziduc/cppa
 ```
 mkdir build
 cd build
-conan install .. --build missing
+conan install .. --build=missing
 cmake ..
 make
 ```
