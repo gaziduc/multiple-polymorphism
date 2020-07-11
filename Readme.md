@@ -26,7 +26,7 @@ git clone https://github.com/gaziduc/cppa
 ```
 mkdir build
 cd build
-conan install .. --build=missing
+conan install .. --build=missing -s compiler.cppstd=20
 cmake ..
 make
 ```

@@ -5,6 +5,5 @@ pylene/head@lrde/stable
 cmake_find_package
 cmake_paths
 
-
 [options]
 pylene:shared=True
