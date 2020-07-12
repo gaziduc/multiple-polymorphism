@@ -4,8 +4,7 @@ project(cppa)
 include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
 find_package(Pylene REQUIRED)
-
-add_subdirectory(include/pybind11)
+find_package(pybind11 REQUIRED)
 
 pybind11_add_module(pylene MODULE
                             src/main.cc
