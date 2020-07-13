@@ -1,17 +1,22 @@
 #include <pybind11/pybind11.h>
 #include "convert.hh"
+#include "../include/pln/morpho/dilation.hpp"
+#include "../include/pln/core/se.hpp"
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(pylene, m)
+PYBIND11_PLUGIN(pylene)
 {
-    m.def("numpy_to_ndbuffer_image", &numpy_to_ndbuffer_image,
-          "Converts a numpy array to a mln::ndbuffer_image",
-          py::arg("array"));
+    py::module m("pylene", "pybind11 example plugin");
 
-    m.def("ndbuffer_image_to_numpy", &ndbuffer_image_to_numpy,
-          "Converts a mln::ndbuffer_image to a numpy array",
-          py::arg("buffer_image"));
+    auto morpho = m.def_submodule("morpho");
+    morpho.def("dilation", &pln::morpho::dilation_wrapper);
+
+    auto se = m.def_submodule("se");
+
+    py::class_<pln::rectangle>(se, "rectangle").def(py::init<int, int>(), py::arg("width"), py::arg("height"));
+
+    return m.ptr();
 }
 
 

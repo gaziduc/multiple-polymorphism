@@ -1,9 +1,9 @@
 #include <mln/core/se/rect2d.hpp>
 #include <type_traits>
 
-namespace pln
+namespace pln::se
 {
-    template <typename T>
+    /*template <typename T>
     class se : public se_t
     {
     public:
@@ -21,10 +21,30 @@ namespace pln
 
     private:
         T element_;
+    };*/
+
+
+    class rectangle : se_t
+    {
+    public:
+        rectangle(int width, int height)
+            : element_(width, height)
+        {}
+
+        mln::se::rect2d get_element()
+        {
+            return element_;
+        }
+
+    private:
+        mln::se::rect2d element_;   
     };
+
+
+    
 }
 
-
+/*
 template <typename T>
 pln::se<T>::se(const T& element)
     : element_(element)
@@ -35,3 +55,4 @@ T pln::se<T>::get_se() const
 {
     return element_;
 }
+*/

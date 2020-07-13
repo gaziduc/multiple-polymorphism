@@ -5,7 +5,7 @@
 namespace py = pybind11;
 
 mln::ndbuffer_image numpy_to_ndbuffer_image(py::array array)
-{    
+{
     py::buffer_info buf = array.request();
 
     int shape[buf.ndim] = {0};
@@ -20,7 +20,7 @@ py::array ndbuffer_image_to_numpy(mln::ndbuffer_image buffer_image)
     py::buffer_info buf;
     buf.ptr = reinterpret_cast<void *>(buffer_image.buffer());
     buf.itemsize = sizeof(mln::sample_type_id::UINT8);
-    buf.format = "l";
+    buf.format = "B";
     buf.ndim = buffer_image.pdim();
 
     std::vector<ssize_t> shape(buf.ndim);
