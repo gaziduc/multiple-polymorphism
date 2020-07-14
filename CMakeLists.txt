@@ -11,6 +11,9 @@ pybind11_add_module(pylene MODULE
                             src/convert.cc
                             include/pln/core/se.cc
                             include/pln/morpho/dilation.cc
+                            include/pln/morpho/erosion.cc
+                            include/pln/morpho/opening.cc
+                            include/pln/morpho/closing.cc
                     )
 
 target_link_libraries(pylene PRIVATE Pylene::Pylene)
