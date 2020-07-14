@@ -1,15 +1,12 @@
 #include <mln/core/image/ndbuffer_image.hpp>
 #include <pybind11/numpy.h>
 #include "convert.hh"
-#include <iostream>
 
 namespace py = pybind11;
 
 mln::ndbuffer_image numpy_to_ndbuffer_image(py::array array)
 {
     py::buffer_info buf = array.request();
-
-    std::cout << buf.itemsize << ' ' << buf.format << ' ' << buf.ptr << ' ' << buf.ndim << '\n';
 
     int shape[buf.ndim] = { 0 };
     for (ssize_t i = 0; i < buf.ndim; i++)

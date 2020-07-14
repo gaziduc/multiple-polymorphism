@@ -1,8 +1,9 @@
 #pragma once
 
-#include "../core/se.hpp"
 #include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>
+
+#include "../core/se.hpp"
 
 namespace py = pybind11;
 
