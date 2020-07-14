@@ -4,8 +4,12 @@
 #include "dilation.hpp"
 #include <mln/core/concepts/structuring_element.hpp>
 #include "../core/se.hpp"
+#include <mln/core/vec_base.hpp>
 #include <pybind11/numpy.h>
 #include "../../../src/convert.hh"
+#include <iostream>
+
+
 
 namespace py = pybind11;
 
@@ -17,17 +21,24 @@ py::array pln::morpho::dilation_wrapper(py::array array, rectangle se)
 
 mln::ndbuffer_image pln::morpho::dilation(mln::ndbuffer_image input, rectangle se)
 {
-    mln::image2d<uint8_t> *image = input.template cast_to<uint8_t, 2>();
+    std::cout << "1" << '\n';
+    auto *image = input.template cast_to<uint8_t, 2>();
 
+    if (!image)
+        std::cout << "error\n";
+        
     // int type_id = se.get_type();
     
   /*  switch (type_id)
     {
         case 0:
         {*/
-            auto res = mln::morpho::dilation(*image, dynamic_cast<pln::rectangle *>(&se)->get_element());
-            mln::ndbuffer_image output = res;
-            return output;
+    std::cout << "2" << '\n';
+    auto res = mln::morpho::dilation(*image, dynamic_cast<pln::rectangle *>(&se)->get_element());
+    std::cout << "3" << '\n';
+    mln::ndbuffer_image output = res;
+    std::cout << "4" << '\n';
+    return output;
    /*     }
         
         default:

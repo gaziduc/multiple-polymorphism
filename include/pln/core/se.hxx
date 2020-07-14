@@ -23,24 +23,6 @@ namespace pln::se
         T element_;
     };*/
 
-
-    class rectangle : se_t
-    {
-    public:
-        rectangle(int width, int height)
-            : element_(width, height)
-        {}
-
-        mln::se::rect2d get_element()
-        {
-            return element_;
-        }
-
-    private:
-        mln::se::rect2d element_;   
-    };
-
-
     
 }
 
