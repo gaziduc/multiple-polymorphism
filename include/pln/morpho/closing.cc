@@ -11,7 +11,7 @@
 
 namespace py = pybind11;
 
-py::array pln::morpho::closing_wrapper(py::array array, pln::se_t se)
+py::array pln::morpho::closing_wrapper(py::array array, pln::se_t& se)
 {
     try
     {
@@ -26,7 +26,7 @@ py::array pln::morpho::closing_wrapper(py::array array, pln::se_t se)
 }
 
 
-mln::ndbuffer_image pln::morpho::closing(mln::ndbuffer_image input, pln::se_t se)
+mln::ndbuffer_image pln::morpho::closing(mln::ndbuffer_image input, pln::se_t& se)
 {
     auto *image = input.template cast_to<uint8_t, 2>();
 
@@ -43,7 +43,7 @@ mln::ndbuffer_image pln::morpho::closing(mln::ndbuffer_image input, pln::se_t se
             mln::ndbuffer_image output = res;
             return output;
         }
-        
+
         case 1:
         {
             auto res = mln::morpho::closing(*image, dynamic_cast<pln::se_template<mln::se::rect2d> *>(&se)->get_element());
@@ -64,8 +64,8 @@ mln::ndbuffer_image pln::morpho::closing(mln::ndbuffer_image input, pln::se_t se
             mln::ndbuffer_image output = res;
             return output;
         }
-        
-        
+
+
         default:
             std::cout << "pylene: closing: could not detect structuring element type\n";
             return input;

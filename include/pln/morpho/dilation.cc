@@ -43,7 +43,7 @@ mln::ndbuffer_image pln::morpho::dilation(mln::ndbuffer_image input, pln::se_t& 
             mln::ndbuffer_image output = res;
             return output;
         }
-        
+
         case 1:
         {
             auto res = mln::morpho::dilation(*image, dynamic_cast<pln::se_template<mln::se::rect2d> *>(&se)->get_element());
@@ -64,8 +64,8 @@ mln::ndbuffer_image pln::morpho::dilation(mln::ndbuffer_image input, pln::se_t& 
             mln::ndbuffer_image output = res;
             return output;
         }
-        
-        
+
+
         default:
             std::cout << "pylene: dilation: could not detect structuring element type\n";
             return input;
