@@ -1,9 +1,9 @@
 #include <iostream>
 #include "se.hpp"
 
-int pln::se_t::get_type() const
+enum pln::s_element pln::se_t::get_type() const
 {
-    return -1;
+    return s_element::UNDEFINED;
 }
 
 pln::se_template<mln::se::disc> pln::se::disc(float radius)

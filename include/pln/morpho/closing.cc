@@ -11,7 +11,7 @@
 
 namespace py = pybind11;
 
-py::array pln::morpho::closing_wrapper(py::array array, pln::se_t& se)
+py::array pln::morpho::closing_wrapper(py::array array, const pln::se_t& se)
 {
     try
     {
@@ -26,41 +26,41 @@ py::array pln::morpho::closing_wrapper(py::array array, pln::se_t& se)
 }
 
 
-mln::ndbuffer_image pln::morpho::closing(mln::ndbuffer_image input, pln::se_t& se)
+mln::ndbuffer_image pln::morpho::closing(mln::ndbuffer_image input, const pln::se_t& se)
 {
     auto *image = input.template cast_to<uint8_t, 2>();
 
     if (!image)
         throw std::invalid_argument("pylene: closing: incorrect numpy array: should be a 2D grey-scale image");
 
-    int type_id = se.get_type();
+    auto type_id = se.get_type();
 
     switch (type_id)
     {
-        case 0:
+        case s_element::DISC:
         {
-            auto res = mln::morpho::closing(*image, dynamic_cast<pln::se_template<mln::se::disc> *>(&se)->get_element());
+            auto res = mln::morpho::closing(*image, dynamic_cast<const pln::se_template<mln::se::disc> *>(&se)->get_element());
             mln::ndbuffer_image output = res;
             return output;
         }
 
-        case 1:
+        case s_element::RECTANGLE:
         {
-            auto res = mln::morpho::closing(*image, dynamic_cast<pln::se_template<mln::se::rect2d> *>(&se)->get_element());
+            auto res = mln::morpho::closing(*image, dynamic_cast<const pln::se_template<mln::se::rect2d> *>(&se)->get_element());
             mln::ndbuffer_image output = res;
             return output;
         }
 
-        case 2:
+        case s_element::PERIODIC_LINE:
         {
-            auto res = mln::morpho::closing(*image, dynamic_cast<pln::se_template<mln::se::periodic_line2d> *>(&se)->get_element());
+            auto res = mln::morpho::closing(*image, dynamic_cast<const pln::se_template<mln::se::periodic_line2d> *>(&se)->get_element());
             mln::ndbuffer_image output = res;
             return output;
         }
 
-        case 3:
+        case s_element::MASK:
         {
-            auto res = mln::morpho::closing(*image, dynamic_cast<pln::se_template<mln::se::mask2d> *>(&se)->get_element());
+            auto res = mln::morpho::closing(*image, dynamic_cast<const pln::se_template<mln::se::mask2d> *>(&se)->get_element());
             mln::ndbuffer_image output = res;
             return output;
         }

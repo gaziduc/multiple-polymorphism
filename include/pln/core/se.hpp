@@ -7,10 +7,19 @@
 
 namespace pln
 {
+    enum class s_element
+    {
+        DISC,
+        RECTANGLE,
+        PERIODIC_LINE,
+        MASK,
+        UNDEFINED
+    };
+
     class se_t
     {
     public:
-        virtual int get_type() const;
+        virtual enum pln::s_element get_type() const;
     };
 
     template <typename T>
@@ -20,7 +29,7 @@ namespace pln
         se_template(const T& element);
 
         T get_element() const;
-        int get_type() const override;
+        enum pln::s_element get_type() const override;
 
     private:
         T element_;  

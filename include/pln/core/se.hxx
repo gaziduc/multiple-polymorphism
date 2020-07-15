@@ -16,19 +16,19 @@ T pln::se_template<T>::get_element() const
 }
 
 template <typename T>
-int pln::se_template<T>::get_type() const
+enum pln::s_element pln::se_template<T>::get_type() const
 {
     if (std::is_same<decltype(element_), mln::se::disc>::value)
-        return 0;
+        return s_element::DISC;
 
     if (std::is_same<decltype(element_), mln::se::rect2d>::value)
-        return 1;
+        return s_element::RECTANGLE;
 
     if (std::is_same<decltype(element_), mln::se::periodic_line2d>::value)
-        return 2;
+        return s_element::PERIODIC_LINE;
 
     if (std::is_same<decltype(element_), mln::se::mask2d>::value)
-        return 3;
+        return s_element::MASK;
 
-    return -1;
+    return s_element::UNDEFINED;
 }

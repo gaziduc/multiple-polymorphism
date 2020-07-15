@@ -1,8 +1,6 @@
 from skimage import data, io
 from build import pylene as pln
 
-# se = pln.se.dilation(5)
-
 se = pln.se.rectangle(10, 10)
 # se = pln.se.disc(10)
 
