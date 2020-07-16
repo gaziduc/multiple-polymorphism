@@ -1,4 +1,5 @@
 #include <iostream>
+#include <initializer_list>
 #include "se.hpp"
 
 enum pln::s_element pln::se_t::get_type() const
