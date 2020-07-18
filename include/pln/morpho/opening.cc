@@ -37,7 +37,7 @@ mln::ndbuffer_image pln::morpho::opening(mln::ndbuffer_image input, const pln::s
         image_grey = input.template cast_to<uint8_t, 2>();
 
         if (!image_grey)
-            throw std::invalid_argument("pylene: opening: incorrect numpy array: cannot cast mln::buffer_image to image2d.\nThe image have to be an 2D grey-scale or RGB image.");
+            throw std::invalid_argument("pylene: opening: incorrect numpy array: cannot cast mln::buffer_image to image2d. The image have to be an 2D grey-scale or RGB image.");
     }
 
     auto type_id = se.get_type();
@@ -103,7 +103,7 @@ mln::ndbuffer_image pln::morpho::opening(mln::ndbuffer_image input, const pln::s
 
 
         default:
-            std::cout << "pylene: opening: could not detect structuring element type\n";
+            throw std::invalid_argument("pylene: opening: could not detect structuring element type");
             return input;
     }
 }

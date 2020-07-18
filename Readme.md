@@ -2,11 +2,17 @@
 
 ## Prerequisites
 
-### Install freeimage
+### Install freeimage and boost via your package manager
 
 ```
-sudo apt install libfreeimage3 # Ubuntu
-sudo pacman -S freeimage # Manjaro
+sudo apt install libfreeimage3 libboost-all-dev # Ubuntu
+sudo pacman -S freeimage boost # Manjaro
+```
+
+### Install conan
+
+```
+pip install conan
 ```
 
 ### Add the Pylene repository in your conan remotes
@@ -29,4 +35,10 @@ cd build
 conan install .. --build=missing -s compiler.cppstd=20
 cmake ..
 make
+```
+
+## Test
+
+```
+make test
 ```

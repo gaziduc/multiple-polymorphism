@@ -31,7 +31,7 @@ PYBIND11_PLUGIN(pylene)
     py::class_<pln::se_template<mln::se::mask2d>>(se, "se_mask2d", base);
 
     se.def("disc", &pln::se::disc);
-    se.def("rectangle", &pln::se::rectangle);
+    se.def("rectangle", &pln::se::rectangle, py::arg("width"), py::arg("height"));
     se.def("periodic_line", &pln::se::periodic_line);
     se.def("mask", &pln::se::mask);
 

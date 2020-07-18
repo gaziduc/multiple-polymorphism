@@ -17,3 +17,5 @@ pybind11_add_module(pylene MODULE
                     )
 
 target_link_libraries(pylene PRIVATE Pylene::Pylene)
+
+add_custom_target(test make && python3 ../tests/testsuite.py)

@@ -14,16 +14,8 @@ namespace py = pybind11;
 
 py::array pln::morpho::dilation_wrapper(py::array array, const pln::se_t& se)
 {
-    try
-    {
-        return ndbuffer_image_to_numpy(pln::morpho::dilation(numpy_to_ndbuffer_image(array), se));
-    }
-    catch (const std::invalid_argument& e)
-    {
-        std::cout << e.what() << '\n';
-        py::array empty_array;
-        return empty_array;
-    }
+
+    return ndbuffer_image_to_numpy(pln::morpho::dilation(numpy_to_ndbuffer_image(array), se));
 }
 
 
@@ -37,7 +29,7 @@ mln::ndbuffer_image pln::morpho::dilation(mln::ndbuffer_image input, const pln::
         image_grey = input.template cast_to<uint8_t, 2>();
 
         if (!image_grey)
-            throw std::invalid_argument("pylene: dilation: incorrect numpy array: cannot cast mln::buffer_image to image2d.\nThe image have to be an 2D grey-scale or RGB image.");
+            throw std::invalid_argument("pylene: dilation: incorrect numpy array: cannot cast mln::buffer_image to image2d. The image have to be an 2D grey-scale or RGB image.");
     }
 
     auto type_id = se.get_type();
@@ -103,7 +95,7 @@ mln::ndbuffer_image pln::morpho::dilation(mln::ndbuffer_image input, const pln::
 
 
         default:
-            std::cout << "pylene: dilation: could not detect structuring element type\n";
+            throw std::invalid_argument("pylene: dilation: could not detect structuring element type");
             return input;
     }
 }
