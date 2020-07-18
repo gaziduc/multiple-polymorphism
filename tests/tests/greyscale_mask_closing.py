@@ -16,7 +16,7 @@ import pylene as pln
 if __name__ == '__main__':
 
     # GIVEN
-    se = pln.se.disc(10)
+    se = pln.se.mask([[1, 2, 2], [1, 0, 1], [1, 3, 0]])
     image = data.camera()
 
     # WHEN / THEN
