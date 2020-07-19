@@ -11,12 +11,13 @@ if __name__ == "__main__":
     tests = [f for f in listdir("../tests/tests/")]
 
     for f in tests: 
-        res = sp.run(["python3", "../tests/tests/" + f])
+        res = sp.run(["python3", "../tests/tests/" + f], capture_output=True)
         if res.returncode == 0:
             print("[OK] " + f)
             ok += 1
         else:
-            print("[KO] " + f)
+            print("[KO] " + f + "   ", end='')
+            print(res.stdout.decode("utf-8"))
             ko += 1
 
     print('\nOK -> ' + str(ok) + '   KO -> ' + str(ko))

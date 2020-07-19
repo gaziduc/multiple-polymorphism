@@ -9,6 +9,9 @@ enum pln::s_element pln::se_t::get_type() const
 
 pln::se_template<mln::se::disc> pln::se::disc(float radius)
 {
+    if (radius <= 0)
+        throw std::invalid_argument("pylene: disc: radius cannot be lower or equal to 0");
+
     mln::se::disc d(radius);
     pln::se_template<mln::se::disc> res(d);
     return res;
@@ -16,6 +19,9 @@ pln::se_template<mln::se::disc> pln::se::disc(float radius)
 
 pln::se_template<mln::se::rect2d> pln::se::rectangle(int width, int height)
 {
+    if (width < 0 || height < 0)
+        throw std::invalid_argument("pylene: rectangle: dimensions cannot be lower than 0");
+
     mln::se::rect2d r(width, height);
     pln::se_template<mln::se::rect2d> res(r);
     return res;

@@ -16,12 +16,11 @@ import pylene as pln
 if __name__ == '__main__':
 
     # GIVEN
-    se = pln.se.mask([[1, 2, 2], [1, 0, 1], [1, 3, 0]])
-    image = data.camera()
+    radius = -10
 
     # WHEN / THEN
     try:
-        out = pln.morpho.dilation(image, se)
-        sys.exit(0)
-    except RuntimeError:
+        se = pln.se.disc(radius)
         sys.exit(1)
+    except Exception:
+        sys.exit(0) # if exception then [OK]

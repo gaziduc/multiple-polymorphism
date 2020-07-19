@@ -30,10 +30,17 @@ PYBIND11_PLUGIN(pylene)
     py::class_<pln::se_template<mln::se::periodic_line2d>>(se, "se_periodicline2d", base);
     py::class_<pln::se_template<mln::se::mask2d>>(se, "se_mask2d", base);
 
+    py::class_<py::array>(se, "se_mask_points")
+    .def(py::init(
+        [](py::array a) {
+            return a;
+        })
+    );
+
     se.def("disc", &pln::se::disc);
     se.def("rectangle", &pln::se::rectangle, py::arg("width"), py::arg("height"));
     se.def("periodic_line", &pln::se::periodic_line);
-    se.def("mask", &pln::se::mask);
+    se.def("mask", &pln::se::mask, py::arg("se_mask_points"));
 
     return m.ptr();
 }

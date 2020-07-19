@@ -23,5 +23,6 @@ if __name__ == '__main__':
     try:
         out = pln.morpho.closing(image, se)
         sys.exit(0)
-    except RuntimeError:
+    except Exception as err:
+        print(err, end='')
         sys.exit(1)

@@ -16,12 +16,13 @@ import pylene as pln
 if __name__ == '__main__':
 
     # GIVEN
-    se = pln.se.mask([[1, 2, 2], [1, 0, 1], [1, 3, 0]])
-    image = data.retina()
+    L = [[0, 1, 0], [1, 1, 1], [0, 1, 0]]
 
     # WHEN / THEN
     try:
-        out = pln.morpho.closing(image, se)
+        se = pln.se.mask(L)
         sys.exit(0)
-    except RuntimeError:
+    except Exception as err:
+        # print(err, end='')
+        # pybind11 error, we don't want to print it...
         sys.exit(1)

@@ -37,7 +37,7 @@ cmake ..
 make
 ```
 
-## Test
+## Launch testsuite
 
 ```
 make test

@@ -16,12 +16,13 @@ import pylene as pln
 if __name__ == '__main__':
 
     # GIVEN
-    se = pln.se.mask([[1, 2, 2], [1, 0, 1], [1, 3, 0]])
-    image = data.retina()
+    width = 5
+    height = 3
 
     # WHEN / THEN
     try:
-        out = pln.morpho.dilation(image, se)
+        se = pln.se.rectangle(width, height)
         sys.exit(0)
-    except RuntimeError:
+    except Exception as err:
+        print(err, end='')
         sys.exit(1)
