@@ -15,6 +15,7 @@ This project aims to establish a practical solution to this problem.
 
 ```
 sudo apt install libfreeimage3 libboost-all-dev # Ubuntu
+# or
 sudo pacman -S freeimage boost # Manjaro
 ```
 
