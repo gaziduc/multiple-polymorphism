@@ -1,6 +1,6 @@
 # Multiple polymorphism
 
-Genericity offers a programming paradigm that reconciles polymorphism (static) and performance in order to define algorithms operating on data of different types without additional costs. In C++, this polymorphism is based on templates. Generic and high-performance C++ libraries build on therefore intensively on this paradigm.
+Genericity offers a programming paradigm that reconciles polymorphism (static) and performance in order to define algorithms operating on data of different types without additional costs. In C++, this polymorphism is based on templates. Generic and high-performance C++ libraries are intensively based on this paradigm.
 
 While C++ is a language of choice for the development of final scientific applications, it remains too restrictive during the analysis and prototyping phases, for which we prefer generally interactive languages (Python / R / Matlab); this is why many C++ libraries have chosen to export their functionalities through bindings.
 
